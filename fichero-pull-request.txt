@@ -1,0 +1,15 @@
+ El volumen de la unidad D es USB-ASUS
+ El número de serie del volumen es: EEF6-C150
+
+ Directorio de D:\desarrollo\java\eclipse-workspace\java-dignitae-24
+
+11/03/2024  20:57    <DIR>          .
+07/03/2024  20:59    <DIR>          ..
+07/03/2024  20:49    <DIR>          .metadata
+07/03/2024  20:49    <DIR>          e01_holaMundo
+11/03/2024  20:22               581 ejemplo.txt
+11/03/2024  20:57                 0 fichero-pull-request.txt
+07/03/2024  20:47            35.823 LICENSE
+07/03/2024  20:47                64 README.md
+               4 archivos         36.468 bytes
+               4 dirs  124.429.463.552 bytes libres
