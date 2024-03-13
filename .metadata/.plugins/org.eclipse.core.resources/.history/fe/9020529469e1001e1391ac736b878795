@@ -1,0 +1,10 @@
+package e03_visibilidad;
+
+public class Rectangulo {
+
+	private int ancho;
+	private int alto;
+	
+	
+	
+}

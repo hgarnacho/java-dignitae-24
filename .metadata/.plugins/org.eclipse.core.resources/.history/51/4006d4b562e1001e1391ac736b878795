@@ -1,0 +1,21 @@
+package e17_entradaTeclado;
+
+import java.util.Scanner;
+
+public class Inicio {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Por favor, introduce tu nombre: ");
+		String nombre = sc.nextLine();
+		
+		System.out.print("Por favor, introduce tu edad: ");
+		Integer edad = sc.nextInt();
+		
+		System.out.println("Hola " + nombre + "!. Tu edad es " + edad + " años.");
+		
+		sc.close();
+	}
+	
+}

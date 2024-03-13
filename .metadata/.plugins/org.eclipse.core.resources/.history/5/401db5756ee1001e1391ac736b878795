@@ -1,0 +1,24 @@
+package e03_visibilidad;
+
+public class Inicio {
+
+	public static void main(String[] args) {
+		Rectangulo r = new Rectangulo(100, 50);
+		
+		r.setAlto(80);
+		r.setAncho(40);
+		
+		System.out.println("El perímetro es: " + r.calcularPerimetro() );
+		System.out.println("El área es: " + r.calcularArea() );
+		 
+		//r.alto = 60;
+		r.setAlto(60);
+		//r.ancho = 30;
+		r.setAncho(60);
+		
+		
+		//System.out.println("El ancho del Rectángulo es " + r.ancho);
+		
+	}
+
+}
