@@ -1,11 +1,9 @@
 package constructores;
 
 public class SuperClase {
+	
 	private int a;
-		
-	public SuperClase() {
-		this.a = 0;
-	}
+	
 	public SuperClase(int a) {
 		this.a = a;
 	}
