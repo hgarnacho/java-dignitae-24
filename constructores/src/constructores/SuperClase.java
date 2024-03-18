@@ -4,6 +4,10 @@ public class SuperClase {
 	
 	private int a;
 	
+	public SuperClase() {
+		this.a = a;
+	}
+	
 	public SuperClase(int a) {
 		this.a = a;
 	}
