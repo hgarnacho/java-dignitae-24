@@ -4,25 +4,14 @@ import java.awt.Color;
 
 public class Inicio {
 
-	public static int a;
-	
-	{
-		a = 10;
-	}
-	
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		System.out.println(ColorStatic.ROJO);
 		System.out.println(ColorStatic.VERDE);
 		System.out.println(ColorStatic.AZUL);
-		
-		Color c = ColorStatic.mezclarColores(ColorStatic.ROJO, ColorStatic.AZUL);
-		System.out.println(c);
-		
-		ColorStatic c2 = new ColorStatic();
-		System.out.println(c2.AMARILLO);
-		
-		System.out.println(ColorStatic.AMARILLO);
-		
+		// Guardamos en un objeto de la clase Color (No ColorStatic) la mezcla de 2 colores
+		//Le pasamos 2 atributos static de ColorStatic, que se inicia
+		Color c = ColorStatic.mezclarColores(ColorStatic.ROJO, ColorStatic.AZUL); 
+		System.out.println(c);		
 	}
 
 }

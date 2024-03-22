@@ -4,5 +4,5 @@
 /**
  * 
  */
-module e38_arraysMultidimensionales {
+module e38_matrices {
 }

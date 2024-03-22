@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Springboot1HolaMundoApplication<springBoot01_holaMundo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.dignitae.springboot.springboot1_holaMundo.Springboot1HolaMundoApplication",
+            "projectName": "springBoot01_holaMundo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

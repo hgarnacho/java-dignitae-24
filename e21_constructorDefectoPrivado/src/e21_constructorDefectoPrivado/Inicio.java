@@ -1,13 +1,14 @@
 package e21_constructorDefectoPrivado;
 
-import java.util.*;
-
-
 public class Inicio {
 
 	public static void main(String[] args) {
-		//MiClase objeto = new MiClase();
-		MiClase objeto2 = new MiClase(10);
+		//No podremos crear objetos por defecto
+		//La siguiente linea dará error en compilación
+		//MiClase o = new MiClase();
+		//Pero sí usando los otros constructores
+		MiClase o2 = new MiClase(1);
+		System.out.println(o2.getMiAtributo());
 	}
 
 }

@@ -3,13 +3,17 @@ package e20_claseStatic;
 import java.awt.Color;
 
 public class ColorStatic {
+	// Definición de colores estáticos
     public static final Color ROJO = new Color(255, 0, 0);
     public static final Color VERDE = new Color(0, 255, 0);
     public static final Color AZUL = new Color(0, 0, 255);
     public static final Color AMARILLO = new Color(255, 255, 0);
     public static final Color NARANJA = new Color(255, 165, 0);
-    
-    //private ColorStatic() {}
+
+    // Constructor privado para evitar instanciación
+    /*private ColorStatic() {
+        // Este constructor está vacío para evitar la creación de instancias de la clase.
+    }*/
     
     public static Color mezclarColores(Color c1, Color c2) {
         // Obtener los componentes RGB de cada color
@@ -30,6 +34,5 @@ public class ColorStatic {
         return new Color(r, g, b);
     }
     
-       
+    
 }
-
