@@ -34,7 +34,7 @@ public class Juego {
 				numeroMonedas = this.cofre.obtenerMonedas();
 
 				if(restarMonedas) {
-					Jugador.restarMonedasTesoro(numeroMonedas);;
+					Jugador.restarMonedasTesoro(numeroMonedas);
 					this.jugadores[jugadorActual].restarMonedas(numeroMonedas);
 					System.out.println("Oh No!!! Restas " + numeroMonedas + " monedas del cofre!!!");
 				}else {					
@@ -43,7 +43,7 @@ public class Juego {
 						Jugador.sumarMonedasTesoro(numeroMonedas);
 						this.jugadores[jugadorActual].sumarMonedas(numeroMonedas);						
 					} else {						
-							System.out.println("Las monedas no entran en el tesoro. Se desecharán!!!");						
+						System.out.println("Has sacado " + numeroMonedas + " pero no entran en el tesoro. Se desecharán!!!");						
 					}				
 				} 
 			}
@@ -58,7 +58,10 @@ public class Juego {
 		System.out.println("Enhorabuena!!! has ganado el juego!!!");
 		System.out.println("Número de turnos: " + numeroTurnos);
 		
-
+		System.out.println("Monedas por jugador:");
+		for(int i=0; i<4; i++) {
+			System.out.println(jugadores[i].getNombre() + " -> " + jugadores[i].getMonedas() + " monedas.");
+		}	
 	}
 	
 	public int getSiguienteJugador(int jugadorActual) {

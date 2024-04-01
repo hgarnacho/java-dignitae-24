@@ -1,6 +1,7 @@
 package p15_monedas;
 
 public class Jugador {
+	
 	public static int tesoro;
 	private String nombre;
 	private int monedas;
@@ -44,7 +45,6 @@ public class Jugador {
 	public static void restarMonedasTesoro(int numeroMonedas) {
 		tesoro-=numeroMonedas;
 	}
-
 
 }
 
