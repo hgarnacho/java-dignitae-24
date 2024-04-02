@@ -1,5 +1,6 @@
-package ejemplo_cuentas_bancarias;
+package ejercicio32_banco;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CuentaRemunerada extends CuentaBancaria implements OperacionesBancariasRemuneradas{
@@ -7,6 +8,25 @@ public class CuentaRemunerada extends CuentaBancaria implements OperacionesBanca
 	private double interes;
 	private double saldoMedio;
 	
+	private Cliente titular;
+	private ArrayList<Cliente> autorizados = new ArrayList<>();
+		
+	public Cliente getTitular() {
+		return titular;
+	}
+
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
+
+	public ArrayList<Cliente> getAutorizados() {
+		return autorizados;
+	}
+
+	public void setAutorizados(ArrayList<Cliente> autorizados) {
+		this.autorizados = autorizados;
+	}
+
 	public CuentaRemunerada(String iban, double saldo, Date fechaApertura, double interes, double saldoMedio) {
 		super(iban, saldo, fechaApertura);
 		this.interes = interes;
@@ -38,4 +58,8 @@ public class CuentaRemunerada extends CuentaBancaria implements OperacionesBanca
 		return  super.toString() + "[Saldo medio:" + this.saldoMedio + ", Interés: " + this.interes + "]";
 	}
 
+	public void addAutorizado(Cliente c) {
+		this.autorizados.add(c);
+	}
+	
 }

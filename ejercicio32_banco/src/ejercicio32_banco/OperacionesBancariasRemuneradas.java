@@ -1,4 +1,4 @@
-package ejemplo_cuentas_bancarias;
+package ejercicio32_banco;
 
 public interface OperacionesBancariasRemuneradas {
 

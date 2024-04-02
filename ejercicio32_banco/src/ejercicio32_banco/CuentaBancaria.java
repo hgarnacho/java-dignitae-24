@@ -1,5 +1,6 @@
-package ejemplo_cuentas_bancarias;
+package ejercicio32_banco;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CuentaBancaria implements OperacionesBancariasCorrientes{
@@ -7,6 +8,9 @@ public class CuentaBancaria implements OperacionesBancariasCorrientes{
 	private String iban;
 	private double saldo;
 	private Date fechaApertura;
+
+	private Cliente titular;
+	private ArrayList<Cliente> autorizados = new ArrayList<>();
 
 	public CuentaBancaria() {
 		this.iban = "";
@@ -26,6 +30,30 @@ public class CuentaBancaria implements OperacionesBancariasCorrientes{
 		this.fechaApertura = c.fechaApertura;		
 	}
 	
+	public String getIban() {
+		return iban;
+	}
+
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+
+	public Cliente getTitular() {
+		return titular;
+	}
+
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
+
+	public ArrayList<Cliente> getAutorizados() {
+		return autorizados;
+	}
+
+	public void setAutorizados(ArrayList<Cliente> autorizados) {
+		this.autorizados = autorizados;
+	}
+
 	@Override
 	public void ingreso(double importe) {
 		this.saldo += importe;
@@ -52,14 +80,6 @@ public class CuentaBancaria implements OperacionesBancariasCorrientes{
 		}
 	}
 
-	public String getIBAN() {
-		return this.iban;
-	}
-
-	public void setIBAN(String iban) {
-		this.iban = iban;
-	}
-
 	public double getSaldo() {
 		return saldo;
 	}
@@ -75,9 +95,24 @@ public class CuentaBancaria implements OperacionesBancariasCorrientes{
 	public void setFechaApertura(Date fechaApertura) {
 		this.fechaApertura = fechaApertura;
 	}
+	
+	public void addAutorizado(Cliente c) {
+		this.autorizados.add(c);
+	}
+	
+	public String toString() {		
+		String cadena = "[ IBAN: " + this.iban + ", Saldo: " + this.saldo + ", Fecha apertura: " + this.fechaApertura  + "]";
+		
+		cadena  += "\n Titular: [Id: " + this.titular.getId() + ", " + this.titular.getNombre() + "]";
+		cadena += "]\n";
 
-	public String toString() {
-		return "[IBAN:" + this.iban + ", Saldo: " + this.saldo + ", " + this.getFechaApertura() + "]";
+		cadena  += "\n Autorizados:\n[";
+		for (Cliente cliente: autorizados) {
+			cadena  += "\n[Id: " + cliente.getId() + ", " + cliente.getNombre() + "]";
+		}
+		cadena += "]\n";
+				
+		return cadena;
 	}
 	
 }
