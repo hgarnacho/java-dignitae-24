@@ -1,0 +1,4 @@
+bd03_DAO\model\Producto.class
+Inicio.class
+bd03_DAO\dao\ProductoDAO.class
+bd03_DAO\jdbc\Conexion.class
