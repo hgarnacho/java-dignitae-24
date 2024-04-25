@@ -1,0 +1,3 @@
+com\dignitae\jsp05_login\servlet\LoginServlet.class
+com\dignitae\jsp05_login\servlet\LogoutServlet.class
+com\dignitae\jsp05_login\bd\Conexion.class
