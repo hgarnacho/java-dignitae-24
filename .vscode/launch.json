@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.dignitae.hibernate01_bd.Main",
+            "projectName": "hibernate01_bd"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Springboot1HolaMundoApplication<springBoot01_holaMundo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
