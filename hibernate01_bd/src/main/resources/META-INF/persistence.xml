@@ -12,10 +12,10 @@
         <!-- Propiedades de la unidad de persistencia -->
         <properties>
             <!-- Propiedades de la conexión a la base de datos -->
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hibernate01_bd"/>
-            <property name="javax.persistence.jdbc.user" value="curso"/>
-            <property name="javax.persistence.jdbc.password" value="curso"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hibernate01_bd"/>
+            <property name="jakarta.persistence.jdbc.user" value="curso"/>
+            <property name="jakarta.persistence.jdbc.password" value="curso"/>
 
             <!-- Otras propiedades de Hibernate -->
             <property name="hibernate.show_sql" value="true"/>

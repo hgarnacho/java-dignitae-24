@@ -4,6 +4,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "com.dignitae.hibernate02_entitymanager.Main",
+            "projectName": "hibernate02_entitymanager"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "com.dignitae.hibernate01_bd.Main",
             "projectName": "hibernate01_bd"
         },

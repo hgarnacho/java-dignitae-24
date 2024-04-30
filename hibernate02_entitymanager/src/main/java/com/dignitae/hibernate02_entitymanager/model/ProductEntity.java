@@ -1,4 +1,4 @@
-package com.dignitae.hibernate01_bd.model;
+package com.dignitae.hibernate02_entitymanager.model;
 
 import java.io.Serializable;
 
@@ -41,11 +41,12 @@ public class ProductEntity implements Serializable {
     private String tipo;
 
     public ProductEntity(@NotBlank String marca, @NotBlank String modelo, @PositiveOrZero double precio,
-            @PositiveOrZero long stock) {
+            @PositiveOrZero long stock, String tipo) {
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
         this.stock = stock;
+        this.tipo = tipo;
     }
 
     public ProductEntity() {
@@ -53,6 +54,7 @@ public class ProductEntity implements Serializable {
         this.modelo = "Sin Modelo";
         this.precio = 0;
         this.stock = 0;
+        this.tipo = "Sin Tipo";
     }
 
     public Long getId() {
@@ -79,6 +81,10 @@ public class ProductEntity implements Serializable {
         this.modelo = modelo;
     }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     public double getPrecio() {
         return precio;
     }
@@ -91,6 +97,10 @@ public class ProductEntity implements Serializable {
         return stock;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
     public void setStock(long stock) {
         this.stock = stock;
     }
@@ -98,7 +108,7 @@ public class ProductEntity implements Serializable {
     @Override
     public String toString() {
         return "ProductEntity [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", precio=" + precio + ", stock="
-                + stock + "]";
+                + stock + ", Tipo=" + tipo + "]";
     }
 
 }
