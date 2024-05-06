@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dignitae.hibernate02_entitymanager</groupId>
+    <groupId>com.dignitae</groupId>
     <artifactId>hibernate02_entitymanager</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -29,7 +29,7 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.0.Final</version> <!-- O la versión más reciente -->
-        </dependency>           
+        </dependency>   
     </dependencies>
 
 </project>

@@ -1,109 +1,131 @@
 package com.dignitae.hibernate02_entitymanager.dao;
-
 import com.dignitae.hibernate02_entitymanager.model.ProductEntity;
 
 import jakarta.persistence.EntityManager;
-
 public class ProductDao {
 
     private EntityManager entityManager;
 
-    public ProductDao(EntityManager entityManager){
+    public ProductDao(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public long add(ProductEntity product){
-        try{
-            
+    public long add(ProductEntity p) {       
+        try {
+            // Comenzar transacción
             entityManager.getTransaction().begin();
-            entityManager.persist(product);
+
+            // Guardar el producto en la base de datos
+            entityManager.persist(p);
+
+            // Commit transacción
             entityManager.getTransaction().commit();
-            System.out.println("Objeto ProductEntity persistido con Id: " + product.getId());
-            return product.getId();
+            System.out.println("Producto guardado exitosamente con ID: " + p.getId());
+            return p.getId();
 
-        } catch(Exception e){
-
-            if(entityManager.getTransaction().isActive()){
+        } catch (Exception e) {
+            // En caso de error, hacer rollback de la transacción
+            if (entityManager.getTransaction().isActive()) {
                 entityManager.getTransaction().rollback();
             }
-
-            System.out.println("Error: " + e.getMessage());
-            return 0;
-        }
-    }
-
-    public long update(ProductEntity product){
-        try{
-
-            entityManager.getTransaction().begin();
-            ProductEntity productToUpdate = entityManager.find(ProductEntity.class, product.getId());
-
-            if(null != productToUpdate){
-                
-                productToUpdate.setMarca(product.getMarca());
-                productToUpdate.setModelo(product.getModelo());
-                productToUpdate.setPrecio(product.getPrecio());
-                productToUpdate.setStock(product.getStock());
-                productToUpdate.setTipo(product.getTipo());
-                entityManager.merge(productToUpdate);
-                entityManager.getTransaction().commit();
-                System.out.println("Producto actualizado correctamente con Id: " + product.getId());
-
-                return productToUpdate.getId();
-
-            } else {
-                System.out.println("No se encontro el objeto ProductEntity con Id: " + product.getId());
-                return 0;
-            }
-
-
-        } catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
-            return 0;
-        }        
-    }
-
-    public long delete(long productId){
-        try{
-            
-            entityManager.getTransaction().begin();
-            ProductEntity productToDelete = entityManager.find(ProductEntity.class, productId);
-
-            if(null != productToDelete){
-                entityManager.remove(productToDelete);
-                entityManager.getTransaction().commit();
-                System.out.println("Producto eliminado correctamente con Id: " + productId);
-                return productId;
-            } else {            
-                System.out.println("No se encontro el objeto ProductEntity con Id: " + productId);
-                return 0;
-            }
-
-        } catch(Exception e){
-            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
             return 0;
         }
     }
 
     public ProductEntity findById(Long productId){
-        try{
-
+        try {
+            // Comenzar transacción
             entityManager.getTransaction().begin();
-            ProductEntity product = entityManager.find(ProductEntity.class, productId);
-            entityManager.getTransaction().commit();
-
-            if(null != product){
-                System.out.println("Producto encontrado con Id: " + productId);
     
+            // Buscar el producto en la base de datos por su ID
+            ProductEntity productEntity = entityManager.find(ProductEntity.class, productId);
+
+            // Commit transacción
+            entityManager.getTransaction().commit();
+            
+            if (productEntity != null) {
+                System.out.println("Producto encontrado con ID: " + productId);
             } else {
-                System.out.println("No se encontro el objeto con Id: " + productId);
+                System.out.println("No se encontró el producto con ID: " + productId);
+            }
+    
+            return productEntity;
+    
+        } catch (Exception e) {
+            // En caso de error, hacer rollback de la transacción
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public long update(ProductEntity updatedProduct) {       
+        try {
+            // Comenzar transacción
+            entityManager.getTransaction().begin();
+
+            // Actualizar el producto en la base de datos
+            ProductEntity existingProduct = entityManager.find(ProductEntity.class, updatedProduct.getId());
+            if (existingProduct != null) {
+                existingProduct.setMarca(updatedProduct.getMarca());
+                existingProduct.setModelo(updatedProduct.getModelo());
+                existingProduct.setPrecio(updatedProduct.getPrecio());
+                existingProduct.setStock(updatedProduct.getStock());
+                //Llamamos al método de actualización del entityManager
+                entityManager.merge(existingProduct);
+            } else {
+                // Manejar el caso en que el producto no existe
+                System.out.println("No se encontró el producto con ID: " + updatedProduct.getId());
+                return 0;
             }
 
-            return product;
+            // Commit transacción
+            entityManager.getTransaction().commit();
+            System.out.println("Producto actualizado exitosamente con ID: " + updatedProduct.getId());
+            return updatedProduct.getId();
 
-        } catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
-            return null;
+        } catch (Exception e) {
+            // En caso de error, hacer rollback de la transacción
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public boolean delete(long productId) {       
+        try {
+            // Comenzar transacción
+            entityManager.getTransaction().begin();
+    
+            // Buscar el producto en la base de datos por su ID
+            ProductEntity productEntity = entityManager.find(ProductEntity.class, productId);
+            if (productEntity != null) {
+                // Eliminar el producto de la base de datos
+                entityManager.remove(productEntity);
+                System.out.println("Producto eliminado exitosamente con ID: " + productId);
+            } else {
+                // Manejar el caso en que el producto no existe
+                System.out.println("No se encontró el producto con ID: " + productId);
+                return false;
+            }
+    
+            // Commit transacción
+            entityManager.getTransaction().commit();
+    
+            return true;
+    
+        } catch (Exception e) {
+            // En caso de error, hacer rollback de la transacción
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            e.printStackTrace();
+            return false;
         }
     }
 
