@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar producto</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/custom.css}" rel="stylesheet">
+</head>
+
+<body>    
+    <div id="nuevo-producto-form-container" class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+      <form id="nuevo-producto-form" th:object="${producto}" th:action="${action}" method="post">
+
+          <input type="hidden" th:field="*{id}">
+
+          <h1 th:text="'Editar producto ' + ${producto.id}"></h1>
+
+          <div class="mb-3">
+            <label for="marca" class="form-label">Marca</label>
+            <input type="text" class="form-control" id="input-marca" aria-describedby="marcaHelp" th:field="*{marca}" autofocus required>
+            <div id="marcaHelp" class="form-text">Marca del producto</div>
+          </div>
+          <div class="mb-3">
+            <label for="modelo" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="input-modelo" aria-describedby="modeloHelp" th:field="*{modelo}" required>
+            <div id="modeloHelp" class="form-text">Modelo del producto</div>
+          </div>
+          <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="input-stock" aria-describedby="stockHelp" th:field="*{stock}" required>
+            <div id="stockHelp" class="form-text">Número de unidades en el almacén</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Aceptar</button>
+        </form>
+
+      <a th:href="@{/productos}">Volver al listado de productos</a>
+
+    </div>
+</body>
+</html>

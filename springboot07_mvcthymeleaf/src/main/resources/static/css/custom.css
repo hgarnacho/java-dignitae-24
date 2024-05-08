@@ -1,0 +1,21 @@
+h2{
+    margin:20px;
+}
+
+#products-count{
+    margin-left:20px;
+}
+
+#nuevo-producto-form-container{
+    max-width: 500px;
+    margin:auto;
+    margin-top:60px;
+}
+
+#nuevo-producto-btn{
+    margin-right:25px;
+}
+
+.navbar h2{
+    color: white;
+}
