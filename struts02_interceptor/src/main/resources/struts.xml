@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="holaMundo" extends="struts-default">
+        <interceptors>
+            <interceptor name="loggingInterceptor" class="com.dignitae.struts02_interceptor.interceptor.LoggingInterceptor"/>
+            <interceptor-stack name="loggingStack">
+                <interceptor-ref name="loggingInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="loggingStack"/>
+
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+        <action name="holamundo" class="com.dignitae.struts02_interceptor.action.HolaMundoAction" method="execute">
+            <result name="success">/holamundo.jsp</result>
+        </action>
+    </package>
+
+</struts>
+
+

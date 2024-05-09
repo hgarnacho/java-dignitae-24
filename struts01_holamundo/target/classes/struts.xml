@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="holaMundo" extends="struts-default">
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+        <action name="holamundo" class="com.dignitae.struts01_holamundo.action.HolaMundoAction" method="execute">
+            <result name="success">/holamundo.jsp</result>
+        </action>
+        <action name="registro" class="com.dignitae.struts01_holamundo.action.RegistroAction" method="execute">
+            <result name="success">/registro.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="usuarios" extends="struts-default">
+        <action name="nuevousuario" class="com.dignitae.struts01_holamundo.action.NuevoUsuarioAction" method="execute">
+            <result name="success">/nuevousuario.jsp</result>
+        </action>
+    </package>
+
+
+</struts>
+
